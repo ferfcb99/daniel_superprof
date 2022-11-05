@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "69RIHyVslPbPP8Yfz939E0XNHSqnu+20amd6zEd3kIvw3JGmL2MwML3vg3ogizM32cP67SESEj9CVuPOR9sRFg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Fernando\\Documents\\Asesorias\\Daniel\\Autos Honda\\Autos\\Autos\\Autos.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Fernando\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.24\\microsoft.netcore.app.host.win-x64.3.1.24.nupkg.sha512"
+  ],
+  "logs": []
+}

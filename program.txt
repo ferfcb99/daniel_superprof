@@ -1,0 +1,138 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Agencia
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        public static string nombrecliente, color;
+        public static double CRV = 0, HRV = 0, PILOT = 0, TOTAL = 0;
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(chkCRV.Checked==true)
+            {
+                if(cmbTipo.Text == "A")
+                {
+                    CRV = 500000;
+                }
+                else if (cmbTipo.Text == "B")
+                {
+                    CRV = 500000;
+                }
+                TOTAL = TOTAL + CRV;
+                colores = Convert.ToString(cmbCRV);
+                tipos = Convert.ToString(cmbTipo);
+            }
+            if(chkHRV.Checked==true)
+            {
+                if(comboBox6.Text == "A")
+                {
+                    HRV = 800000;
+                }
+                else if (comboBox6.Text == "B")
+                {
+                    HRV = 800000;
+                }
+                TOTAL = TOTAL + HRV;
+                colores = Convert.ToString(cmbHRV);
+                tipos = Convert.ToString(comboBox6);
+            }
+            if (chkPILOT.Checked == true)
+            {
+                if (comboBox5.Text == "A")
+                {
+                    PILOT = 650000;
+                }
+                else if (comboBox5.Text == "B")
+                {
+                    PILOT = 650000;
+                }
+                TOTAL = TOTAL + PILOT;
+                colores = Convert.ToString(cmbPILOT);
+                tipos = Convert.ToString(comboBox5);
+            }
+
+            nombrecliente = txtnombrecliente.Text;
+            color = colores;
+
+            this.Hide();
+            Form2 Ticket = new Form2();
+            Ticket.Show();
+
+        }
+
+        public static string colores, tipos;
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
+
+____________________
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Agencia
+{
+    public partial class Form2 : Form
+    {
+        public Form2()
+        {
+            InitializeComponent();
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            txtnombre.Text = Form1.nombrecliente;
+            txttipo.Text = Form1.tipos;
+            txtcolor.Text = Form1.color;
+            txttotal.Text = Convert.ToString(Form1.TOTAL);
+            
+        }
+    }
+}
+---------------------------------
+
+Realiza una aplicación para una agencia de
+coches Toyota con las siguientes características:
+
+1.     El primer formulario debe tener el espacio para
+poner  el nombre del cliente, el botón que permita generar la orden de compra, imágenes de los coches de los modelos de Toyota por vender,  versión, color.
+
+2.     Dependiendo de la versión seleccionada se mostrara el precio  que se mostrara en
+otro formulario al oprimir el botón de orden de compra
+
+Los datos que debe contener el formulario son:
+Nombre del cliente
+Color seleccionado
+
+
+3.     Es importante programar con clases y los datos encapsulados
