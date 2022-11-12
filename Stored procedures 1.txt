@@ -1,0 +1,80 @@
+-- create : registros nuevos (insertar datos)
+-- read : consulta
+-- update : actualizacion 
+-- delete : borrado de datos
+
+INSERT INTO Alumno(matricula,nombre_alumno,id_tutor) VALUES('2021433C','Lorena',4),
+														   ('2020145D','Mario',1);
+
+CREATE PROCEDURE sp_InsertarAlumno
+(
+  @matricula VARCHAR(10),
+  @nombre_alumno VARCHAR(20),
+  @id_tutor int
+) 
+AS
+BEGIN
+	insert into Alumno(matricula, nombre_alumno, id_tutor) values(@matricula,@nombre_alumno,@id_tutor);
+END
+
+execute sp_InsertarAlumno '20211305A','Gustavo',3;
+
+CREATE PROCEDURE sp_ConsultarAlumnoporMatricula
+(
+ @matricula VARCHAR(10)
+)
+AS
+begin
+	select * from Alumno where matricula = @matricula;
+END
+
+EXECUTE sp_ConsultarAlumnoporMatricula '202113A';
+Select * from Alumno;
+
+CREATE PROCEDURE sp_EliminarAlumnoporMatricula
+(
+ @matricula VARCHAR(10)
+)
+AS
+BEGIN
+	delete from Alumno where matricula = @matricula;
+END
+
+EXECUTE sp_EliminarAlumnoporMatricula '202113A';
+
+CREATE PROCEDURE sp_ActualizarAlumno
+(
+  @matricula VARCHAR(10),
+  @nombre_alumno VARCHAR(20),
+  @id_tutor int
+)
+as
+begin 
+  update Alumno 
+	set nombre_alumno = @nombre_alumno, id_tutor = @id_tutor
+		where matricula = @matricula;
+end
+
+select * from Alumno;
+ execute sp_ActualizarAlumno '202111B','Gabriela',2;
+
+
+select * from tutor;
+
+create procedure sp_insertaTutor(
+	@nombre varchar(30)
+) AS
+begin
+	if exists(select * from tutor where nombre = @nombre) 
+	begin 
+		print 'El registro con ese nombre ya existe';
+	end
+	else
+	begin
+		insert into tutor(nombre) values(@nombre);
+	end
+end
+
+execute sp_insertaTutor 'Berenice';
+
+select * from tutor;
